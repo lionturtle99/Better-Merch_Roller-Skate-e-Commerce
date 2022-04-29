@@ -71,6 +71,8 @@ _Brain storming with dev group_
 
 _Watch videos on integrating ThreeJS with React using React Fiber_
 
+_Additional research into React and ThreeJS_
+
 ###### 3D rollerskate portfolio Website
 
 * _take this week to research and decide if this is too much_
