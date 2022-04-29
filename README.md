@@ -65,9 +65,24 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
-### 📋 Planning and Log
+### 📋 Research & Planning Log
 
-_Brain storming with dev group complete_
+_Brain storming with dev group_
+
+###### 3D rollerskate portfolio Website
+
+* _take this week to research and decide if this is too much_
+* _mvp would be to move around the roller rink_
+
+
+###### Rollerskate E-Commerce Website
+
+* _basic react front end and C# backend application as mvp_
+* _use Printful API to add customizable t-shirt functionality_
+* _use Shopify to add secure e-commerce so users can actually buy items_
+
+
+
 
 
 <p align="center"><a href="#">Return to Top</a></p>
