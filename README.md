@@ -73,6 +73,8 @@ _Watch videos on integrating ThreeJS with React using React Fiber_
 
 _Additional research into React and ThreeJS_
 
+_Arrange a meet up with a Epicodus alum with experience in React-ThreeJS/Fiber_
+
 ###### 3D rollerskate portfolio Website
 
 * _take this week to research and decide if this is too much_
