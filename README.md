@@ -75,6 +75,8 @@ _Additional research into React and ThreeJS_
 
 _Arrange a meet up with a Epicodus alum with experience in React-ThreeJS/Fiber_
 
+_Finish React-ThreeJS tutorial on youtube_
+
 ###### 3D rollerskate portfolio Website
 
 * _take this week to research and decide if this is too much_
