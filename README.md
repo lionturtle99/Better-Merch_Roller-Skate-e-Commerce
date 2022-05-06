@@ -79,6 +79,8 @@ _Finish React-ThreeJS tutorial on youtube_
 
 _watch tutorials on creating a .NET core backend and React front end. Start project using dotnet new react... command_
 
+_Configuring project for use with newer packages_
+
 ##### Rollerskate E-Commerce Website
 
 * _e-commerce website for local artists to sell their rollerskate art at a convenient single location_
