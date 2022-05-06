@@ -22,12 +22,12 @@
 </p>
 
 <p align="center">
-  <small>Initiated April, 2022</small>
+  <small>Initiated May, 2022</small>
 </p>
 
-<h1 align="center">Capstone</h1>
+<h1 align="center">Roller Skate on in</h1>
 
-<p align="center">{description}</p>
+<p align="center">e-commerce website for local artists to sell their rollerskate art at a convenient single location</p>
 
 <p align="center"><a href="#">Visit live site</a></p>
 
@@ -36,16 +36,16 @@
 ## Technologies Used
 
 * _Visual Studio Code_
-* _Github pages_
+* _Github/git_
 * _HTML_
 * _CSS_
 * _Bootstrap_
 * _JavaScript_
-* _Jquery_
+* _C#_
+* _DOTNET_
 * _React_
 * _Redux_
-* _NPM_
-* _Webpack_
+* _Node Package Manager_
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
@@ -77,6 +77,8 @@ _Arrange a meet up with a Epicodus alum with experience in React-ThreeJS/Fiber_
 
 _Finish React-ThreeJS tutorial on youtube_
 
+_watch tutorials on creating a .NET core backend and React front end. Start project using dotnet new react... command_
+
 ##### Rollerskate E-Commerce Website
 
 * _e-commerce website for local artists to sell their rollerskate art at a convenient single location_
@@ -85,16 +87,14 @@ _Finish React-ThreeJS tutorial on youtube_
 * _Integrate ThreeJS somehow_
 
 ###### MVP
-_React front end and C# backend e-commerce application. Users should be able to search a database for items like t-shirts, hats etc and view item details._
+* _Sleek and professional UI_
+* _Users should be able to search a database for items like t-shirts, hats etc, view item details and buy items via shopify_
 
 ##### Stretch Goals
 * _3D landing page for that wow factor_
-* _use Printful API to add customizable t-shirt functionality_
-* _use Shopify to add secure e-commerce so users can actually buy items_
-
-
-
-
+* _Use Authentication and Authorization for artists to add items_
+* _Printful API to add customizable t-shirt functionality_
+* _Use Printful or another API to design your own skates based on multiple frames and then render those skates in a 3D environment_
 
 
 
