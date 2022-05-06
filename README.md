@@ -65,7 +65,26 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
-### 📋 Research & Planning Log
+## 📋 Research & Planning Log
+
+### Rollerskate E-Commerce Website Proposal
+
+* _e-commerce website for local artists to sell their rollerskate art at a convenient single location_
+* _C# backend to handle the database_
+* _React front end_
+* _Integrate ThreeJS somehow_
+
+##### MVP
+* _Sleek and professional UI_
+* _Users should be able to search a database for items like t-shirts, hats etc, view item details and buy items via shopify_
+
+#### Stretch Goals
+* _3D landing page for that wow factor_
+* _Use Authentication and Authorization for artists to add items_
+* _Printful API to add customizable t-shirt functionality_
+* _Use Printful or another API to design your own skates based on multiple frames and then render those skates in a 3D environment_
+
+### Attendance Log
 
 _Brain storming with dev group_
 
@@ -81,23 +100,6 @@ _watch tutorials on creating a .NET core backend and React front end. Start proj
 
 _Configuring project for use with newer packages_
 
-##### Rollerskate E-Commerce Website
-
-* _e-commerce website for local artists to sell their rollerskate art at a convenient single location_
-* _C# backend to handle the database_
-* _React front end_
-* _Integrate ThreeJS somehow_
-
-###### MVP
-* _Sleek and professional UI_
-* _Users should be able to search a database for items like t-shirts, hats etc, view item details and buy items via shopify_
-
-##### Stretch Goals
-* _3D landing page for that wow factor_
-* _Use Authentication and Authorization for artists to add items_
-* _Printful API to add customizable t-shirt functionality_
-* _Use Printful or another API to design your own skates based on multiple frames and then render those skates in a 3D environment_
-
-
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
 <p align="center"><a href="#">Return to Top</a></p>
