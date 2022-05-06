@@ -77,17 +77,22 @@ _Arrange a meet up with a Epicodus alum with experience in React-ThreeJS/Fiber_
 
 _Finish React-ThreeJS tutorial on youtube_
 
-###### 3D rollerskate portfolio Website
+##### Rollerskate E-Commerce Website
 
-* _take this week to research and decide if this is too much_
-* _mvp would be to move around the roller rink_
+* _e-commerce website for local artists to sell their rollerskate art at a convenient single location_
+* _C# backend to handle the database_
+* _React front end_
+* _Integrate ThreeJS somehow_
 
+###### MVP
+_React front end and C# backend e-commerce application. Users should be able to search a database for items like t-shirts, hats etc and view item details._
 
-###### Rollerskate E-Commerce Website
-
-* _basic react front end and C# backend application as mvp_
+##### Stretch Goals
+* _3D landing page for that wow factor_
 * _use Printful API to add customizable t-shirt functionality_
 * _use Shopify to add secure e-commerce so users can actually buy items_
+
+
 
 
 
