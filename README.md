@@ -100,6 +100,8 @@ _watch tutorials on creating a .NET core backend and React front end. Start proj
 
 _Configuring project for use with newer packages_
 
+_Considering using Firebase as backend_
+
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
 <p align="center"><a href="#">Return to Top</a></p>
