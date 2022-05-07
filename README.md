@@ -102,6 +102,8 @@ _Configuring project for use with newer packages_
 
 _Considering using Firebase as backend_
 
+_trouble shooting package management_
+
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
 <p align="center"><a href="#">Return to Top</a></p>
