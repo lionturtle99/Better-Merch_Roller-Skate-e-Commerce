@@ -108,6 +108,8 @@ _Start new research, possibly adding some  tech stack_
 
 _WIP: working through tutorials_
 
+_Change tech stack to use firebase as backend_
+
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
 <p align="center"><a href="#">Return to Top</a></p>
