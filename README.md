@@ -106,6 +106,8 @@ _trouble shooting package management_
 
 _Start new research, possibly adding some  tech stack_
 
+_WIP: working through tutorials_
+
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
 <p align="center"><a href="#">Return to Top</a></p>
