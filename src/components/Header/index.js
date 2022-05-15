@@ -4,7 +4,7 @@ import * as ROUTES from '../../constants/routes';
 import { Navbar, Nav, Container, Form, FormControl, Button } from "react-bootstrap";
 
 
-export const Navigation = () => {
+export const Header = () => {
   return (
     <>
       <Navbar bg="light" expand="lg">
