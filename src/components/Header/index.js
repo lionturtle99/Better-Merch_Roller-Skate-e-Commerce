@@ -1,15 +1,27 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
 import * as ROUTES from '../../constants/routes';
 import { Navbar, Nav, Container, Form, FormControl, Button } from "react-bootstrap";
+import { logOutInitiate } from '../../redux/actions/actions';
 
 
 export const Header = () => {
+  let dispatch = useDispatch();
+  const { user } = useSelector((state) => state.data);
+
+  const handleAuth = () => {
+    if(user) {
+      dispatch(logOutInitiate());
+    }
+  }
+
   return (
     <>
       <Navbar bg="light" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#">Skate-etsy</Navbar.Brand>
+          <Navbar.Brand ><Link to={ROUTES.LANDING}>Roller Skaters eCommerce</Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -18,19 +30,13 @@ export const Header = () => {
               navbarScroll
             >
               <Nav.Item>
-                <Link className = "nav-link" to={ROUTES.SIGN_IN}>Sign In</Link>
+                <Link className = "nav-link" onClick={user ? handleAuth : null} to={`${user ? ROUTES.HOME : ROUTES.SIGN_IN}`}>{user ? "Sign Out" : "Sign In" }</Link>
               </Nav.Item>
               <Nav.Item >
                 <Link className = "nav-link" to={ROUTES.LANDING}>Landing</Link>
               </Nav.Item>
               <Nav.Item>
                 <Link className = "nav-link" to={ROUTES.HOME}>Home</Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Link className = "nav-link" to={ROUTES.ACCOUNT}>Account</Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Link className = "nav-link" to={ROUTES.ADMIN}>Admin</Link>
               </Nav.Item>
               {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>

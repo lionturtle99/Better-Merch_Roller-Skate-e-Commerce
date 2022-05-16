@@ -1,25 +1,82 @@
-import * as a from './actionTypes';
-import { auth } from '../../firebase.config';
+import * as types from './actionTypes';
+import { authorization } from '../../firebase.config';
 
 const registerStart = () => ({
-  type: a.REGISTER_START,
+  type: types.REGISTER_START,
 });
 
-const registerSuccess = () => ({
-  type: a.REGISTER_SUCCESS,
+const registerSuccess = (user) => ({
+  type: types.REGISTER_SUCCESS,
+  payload: user
 });
 
-const registerFail = () => ({
-  type: a.REGISTER_FAIL,
+const registerFail = (error) => ({
+  type: types.REGISTER_FAIL,
+  payload: error
+});
+
+const loginStart = () => ({
+  type: types.LOGIN_START,
+});
+
+const loginSuccess = (user) => ({
+  type: types.LOGIN_SUCCESS,
+  paylaod: user
+});
+
+const loginFail = (error) => ({
+  type: types.LOGIN_FAIL,
+  payload: error
+});
+
+const logOutStart = () => ({
+  type: types.LOGOUT_START,
+});
+
+const logOutSuccess = (response) => ({
+  type: types.LOGOUT_SUCCESS,
+  paylaod: response
+});
+
+const logOutFail = (error) => ({
+  type: types.LOGOUT_FAIL,
+  payload: error
 });
 
 export const registerInitiate = (email, password) => {
   return function(dispatch) {
     dispatch(registerStart());
-    auth.createUserWithEmailAndPassword(email, password)
-    .then(({ user }) => {
-      dispatch(registerSuccess(user));
-    })
-    .catch((error) => dispatch(registerFail(error.message)));
+    authorization
+      .createUserWithEmailAndPassword(email, password)
+      .then(({ user }) => {
+        dispatch(registerSuccess(user));
+      })
+      .catch((error) => dispatch(registerFail(error.message)));
+  }
+}
+
+export const loginInitiate = (email, password) => {
+  return function(dispatch) {
+    dispatch(loginStart());
+    authorization
+      .signInWithEmailAndPassword(email, password)
+      .then(({ user }) => {
+        dispatch(loginSuccess(user));
+      })
+      .catch((error) => dispatch(loginFail(error.message)));
+  }
+}
+
+export const setuser = (user) => ({
+  type: types.SET_USER,
+  payload: user
+});
+
+export const logOutInitiate = () => {
+  return function (dispatch) {
+    dispatch(logOutStart());
+    authorization.signOut()
+      .then((response) => dispatch(logOutSuccess(response)))
+      .catch(error => dispatch(logOutFail(error.message)))
   }
 }
