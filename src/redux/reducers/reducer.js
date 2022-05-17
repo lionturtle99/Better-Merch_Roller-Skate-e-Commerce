@@ -9,6 +9,13 @@ const initialState = {
 
 const basketReducer = (state = initialState, action) => {
   switch(action.type) {
+    case types.ADD_TO_BASKET:
+      const newBasket = [...state.basket, action.payload];
+      return {
+        ...state,
+        basket: newBasket,
+      }
+
     case types.REGISTER_START:
     case types.LOGIN_START:
     case types.LOGOUT_START:

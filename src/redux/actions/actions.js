@@ -1,6 +1,11 @@
 import * as types from './actionTypes';
 import { authorization } from '../../firebase.config';
 
+export const addToBasket = (item) => ({
+  type: types.ADD_TO_BASKET,
+  payload: item
+})
+
 const registerStart = () => ({
   type: types.REGISTER_START,
 });

@@ -21,7 +21,7 @@ export const Header = () => {
     <>
       <Navbar bg="light" expand="lg">
         <Container fluid>
-          <Navbar.Brand ><Link to={ROUTES.LANDING}>Roller Skaters eCommerce</Link></Navbar.Brand>
+          <Navbar.Brand ><Link className="text-center" style={{displayStyle: "none"}} to={ROUTES.LANDING}>Roller Skaters <span className="d-block">eCommerce</span></Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
