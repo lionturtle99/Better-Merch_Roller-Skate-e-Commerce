@@ -1,30 +1,42 @@
 // import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
+// import { useDispatch, useSelector } from 'react-redux';
 import Product from './Product';
+import { colRef } from '../../firebase.config';
+import { getDocs } from '@firebase/firestore';
+import { useState } from 'react';
+import { Container } from 'react-bootstrap';
+
 
 const Products = () => {
+  const [loaded, setLoaded] = useState(false);
+  const [products, setProducts] = useState();
 
-  // useFirestoreConnect([
-  //   { collection: 'products' }
-  // ]);
+getDocs(colRef)
+  .then(snapshot => {
+    let docsSnapshot = [];
+    snapshot.docs.forEach(doc => {
+      docsSnapshot.push({ ...doc.data() });
+    })
+    setProducts(docsSnapshot);
+    setLoaded(true);
+  })
+  .catch(err => {
+    console.log(err.message);
+  })
 
-  // const products = useSelector(state => state.firestore.ordered.products);
-
-  // if(isLoaded(products)) {
-    // return (
-    //   <>
-    //     <div style={{display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))"}}>
-    //       {products.map((product, index) => <Product key={index} props={product} /> )}
-    //     </div>
-    //   </>
-    // )
-  // } else {
+  if(loaded) {
     return (
-    "  hello home"
-      // <h1 className="text-center position-absolute top-50 left-50" style={{transform: "translate(50%, 50%)"}}>Loading...</h1>
+      <>
+        <Container className="mt-5" style={{display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gridGap: "1em"}}>
+          {products.map((product, index) => <Product key={index} product={product} /> )}
+        </Container>
+      </>
     )
-  // }
+  } else {
+    return (
+      <h1 className="text-center position-absolute" style={{top: "50%", right: "50%",transform: "translate(50%, 50%)"}}>Loading...</h1>
+    )
+  }
 
 }
 

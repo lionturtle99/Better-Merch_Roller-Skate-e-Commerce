@@ -1,6 +1,7 @@
-import firebase from 'firebase';
-// import { initializeApp } from 'firebase/app';
-import 'firebase/firestore';
+// import firebase from 'firebase';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -13,9 +14,9 @@ const firebaseConfig = {
 }
 
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-const db = firebaseApp.firestore();
-const authorization = firebase.auth();
-// const googleAuthProvider = firebaseApp.auth.googleAuthProvider();
+initializeApp(firebaseConfig);
+const db = getFirestore();
+const colRef = collection(db, "products");
+const authorization = getAuth();
 
-export { db, authorization };
+export { colRef, authorization };

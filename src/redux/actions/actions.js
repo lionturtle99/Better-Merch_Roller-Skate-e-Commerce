@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
-import { authorization } from '../../firebase.config';
+import { authorization as auth } from '../../firebase.config';
+import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from 'firebase/auth';
 
 export const addToBasket = (item) => ({
   type: types.ADD_TO_BASKET,
@@ -56,8 +57,7 @@ const logOutFail = (error) => ({
 export const registerInitiate = (email, password) => {
   return function(dispatch) {
     dispatch(registerStart());
-    authorization
-      .createUserWithEmailAndPassword(email, password)
+      createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         dispatch(registerSuccess(user));
       })
@@ -68,8 +68,7 @@ export const registerInitiate = (email, password) => {
 export const loginInitiate = (email, password) => {
   return function(dispatch) {
     dispatch(loginStart());
-    authorization
-      .signInWithEmailAndPassword(email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         dispatch(loginSuccess(user));
       })
@@ -85,7 +84,7 @@ export const setuser = (user) => ({
 export const logOutInitiate = () => {
   return function (dispatch) {
     dispatch(logOutStart());
-    authorization.signOut()
+    signOut(auth)
       .then((response) => dispatch(logOutSuccess(response)))
       .catch(error => dispatch(logOutFail(error.message)))
   }
