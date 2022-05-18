@@ -2,12 +2,12 @@ import * as types from './actionTypes';
 import { authorization as auth } from '../../firebase.config';
 import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from 'firebase/auth';
 
-export const addToBasket = (item) => ({
+export const addToCart = (item) => ({
   type: types.ADD_TO_BASKET,
   payload: item
 })
 
-export const removeFromBasket = (id) => ({
+export const removeFromCart = (id) => ({
   type: types.REMOVE_FROM_BASKET,
   payload: id
 })

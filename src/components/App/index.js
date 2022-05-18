@@ -16,16 +16,16 @@ import HomePage from '../Home';
 
 
 const App = () => {
-  let dispatch = useDispatch();
-  useEffect(() => {
-    authorization.onAuthStateChanged((authUser) => {
-      if(authUser) {
-        dispatch(setuser(authUser));
-      } else {
-        dispatch(setuser(null));
-      }
-    })
-  }, [dispatch]);
+  // let dispatch = useDispatch();
+  // useEffect(() => {
+  //   authorization.onAuthStateChanged((authUser) => {
+  //     if(authUser) {
+  //       dispatch(setuser(authUser));
+  //     } else {
+  //       dispatch(setuser(null));
+  //     }
+  //   })
+  // }, [dispatch]);
   return (
     <Router>
       <Header />

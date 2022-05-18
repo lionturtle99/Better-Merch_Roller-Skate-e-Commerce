@@ -3,7 +3,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Card, Button } from 'react-bootstrap';
 import ImageCarousel from '../ImageCarousel';
-import { addToBasket } from "../../redux/actions/actions";
+import { addToCart } from "../../redux/actions/actions";
+import { Link } from "react-router-dom";
 
 import img1 from "../../assets/images/img1.jpeg";
 import img2 from "../../assets/images/img2.jpeg";
@@ -13,7 +14,7 @@ const Product = ({product}) => {
 
   const dispatch = useDispatch();
 
-  const addItemToBasket = (message) => {
+  const addItemToCart = (message) => {
     const item = {
       id: 1,
       title: "Rainbow Shoulder Strap",
@@ -21,22 +22,22 @@ const Product = ({product}) => {
       images: [{url: img1, alt: "example text"}, {url: img2, alt: "example text"}, {url: img3, alt: "example text"}],
       price: 7.99
     };
-    dispatch(addToBasket(item));
+    dispatch(addToCart(item));
     console.log(message);
   };
 
   return (
     <>
-      <Card id={product.id} style={{ width: '18rem' }}>
-        <div>
+      <Card style={{ width: '18rem' }}>
           <ImageCarousel className="card-img" images={product.images} />
-        </div>
         <Card.Body>
-          <Card.Title>{product.title}</Card.Title>
+          <Link className="text-decoration-none text-inherit" to={`/products/${product.id}`}>
+            <Card.Title>{product.title}</Card.Title>
+          </Link>
           <Card.Text>{product.description}</Card.Text>
           <div className="d-flex">
             <p>Price: {product.price}</p>
-            <Button variant="primary" onClick={() => addItemToBasket("Successfuly fired addItemToBasket")} >Add to Cart</Button>
+            <Button variant="primary" onClick={() => addItemToCart("Successfuly fired addItemToCart")} >Add to Cart</Button>
           </div>
         </Card.Body>
       </Card>
