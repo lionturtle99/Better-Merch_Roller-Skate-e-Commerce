@@ -1,43 +1,30 @@
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
-import img1 from "../../assets/images/img1.jpeg";
-import img2 from "../../assets/images/img2.jpeg";
-import img3 from "../../assets/images/img3.jpeg";
-
+// import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 import Product from './Product';
-import { addToBasket } from '../../redux/actions/actions';
 
-const Products = ({
-  id,
-  title,
-  description,
-  images,
-  price,
-}) => {
+const Products = () => {
 
-  const dispatch = useDispatch();
+  // useFirestoreConnect([
+  //   { collection: 'products' }
+  // ]);
 
-  const addItemToBasket = () => {
-    const item = {
-      id,
-      title,
-      description,
-      images = [{url: img1, alt: "example text"}, {url: img2, alt: "example text"}, {url: img3, alt: "example text"}],
-      price
-    };
-    dispatch(addToBasket(item));
-  };
+  // const products = useSelector(state => state.firestore.ordered.products);
 
-  return (
-    <>
-      <Container>
-        <div style={{display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))"}}>
-          {products.map((product, index) => <Product id={index} props={product} /> )}
-        </div>
-      </Container>
-    </>
-  )
+  // if(isLoaded(products)) {
+    // return (
+    //   <>
+    //     <div style={{display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))"}}>
+    //       {products.map((product, index) => <Product key={index} props={product} /> )}
+    //     </div>
+    //   </>
+    // )
+  // } else {
+    return (
+    "  hello home"
+      // <h1 className="text-center position-absolute top-50 left-50" style={{transform: "translate(50%, 50%)"}}>Loading...</h1>
+    )
+  // }
 
 }
 

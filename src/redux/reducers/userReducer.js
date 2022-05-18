@@ -1,21 +1,13 @@
-import * as types from './../actions/actionTypes';
+import * as types from '../actions/actionTypes';
 
 const initialState = {
   loading: false,
-  basket: [],
   user: null,
   error: null,
 }
 
-const basketReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch(action.type) {
-    case types.ADD_TO_BASKET:
-      const newBasket = [...state.basket, action.payload];
-      return {
-        ...state,
-        basket: newBasket,
-      }
-
     case types.REGISTER_START:
     case types.LOGIN_START:
     case types.LOGOUT_START:
@@ -53,4 +45,4 @@ const basketReducer = (state = initialState, action) => {
   }
 }
 
-export default basketReducer;
+export default userReducer;

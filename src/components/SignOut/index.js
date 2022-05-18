@@ -1,30 +1,19 @@
-import React from 'react'
+import { Card, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const SignOut = () => {
   return (
-    <>
-      {/* <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Register</h2>
-          <Form onSubmit={handleSignIn}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Button className="w-100" type="submit">
-              Register
-            </Button>
-          </Form>
+    <Container style={{height: "85vh"}} className="d-flex align-items-center justify-content-center w-50">
+      <Card className="text-center p-5">
+        <Card.Body >
+          <h5>You are now signed out</h5>
         </Card.Body>
-      </Card> */}
-      <div className="w-100 text-center mt-2">
-        Don't have an account? <Link to="/register">Register</Link>
-      </div>
-    </>
+        <div className="mt-5">
+          <small>Didn't mean to sign out? <Link to="/signin">Sign In</Link></small>
+        </div>
+      </Card>
+    </Container>
+
   )
 }
 

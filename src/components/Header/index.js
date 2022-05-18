@@ -2,14 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import * as ROUTES from '../../constants/routes';
 import { Navbar, Nav, Container, Form, FormControl, Button } from "react-bootstrap";
 import { logOutInitiate } from '../../redux/actions/actions';
 
 
 export const Header = () => {
   let dispatch = useDispatch();
-  const { user } = useSelector((state) => state.data);
+  const { user } = useSelector((state) => state.user);
 
   const handleAuth = () => {
     if(user) {
@@ -19,24 +18,24 @@ export const Header = () => {
 
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
-          <Navbar.Brand ><Link className="text-center" style={{displayStyle: "none"}} to={ROUTES.LANDING}>Roller Skaters <span className="d-block">eCommerce</span></Link></Navbar.Brand>
+          <Navbar.Brand ><Link className="text-center text-decoration-none text-white" to="/">Roller Skaters <span className="d-block">eCommerce</span></Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="me-auto my-2 my-lg-0"
+              className="navbar navbar-dark bg-dark me-auto my-2 my-lg-0"
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
               <Nav.Item>
-                <Link className = "nav-link" onClick={user ? handleAuth : null} to={`${user ? ROUTES.HOME : ROUTES.SIGN_IN}`}>{user ? "Sign Out" : "Sign In" }</Link>
+                <Link className="nav-link text-white" onClick={user ? handleAuth : null} to={`${user ? "/signout" : "/signin"}`}>{user ? "Sign Out" : "Sign In" }</Link>
               </Nav.Item>
               <Nav.Item >
-                <Link className = "nav-link" to={ROUTES.LANDING}>Landing</Link>
+                <Link className="nav-link text-white" to="/" >Landing</Link>
               </Nav.Item>
               <Nav.Item>
-                <Link className = "nav-link" to={ROUTES.HOME}>Home</Link>
+                <Link className="nav-link text-white" to="/home" >Home</Link>
               </Nav.Item>
               {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
@@ -54,7 +53,7 @@ export const Header = () => {
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-success">Search</Button>
+              <Button variant="outline-info">Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>

@@ -13,3 +13,7 @@ export const LOGOUT_FAIL = "LOGOUT_FAIL";
 export const SET_USER = "SET_USER";
 
 export const  ADD_TO_BASKET = "ADD_TO_BASKET";
+
+export const  REMOVE_FROM_BASKET = "REMOVE_FROM_BASKET";
+
+export const BUY_PRODUCT = "BUY_PRODUCT";

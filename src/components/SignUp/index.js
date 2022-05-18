@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { registerInitiate, loginInitiate } from '../../redux/actions/actions';
 import { Card, Form, Button, Alert } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { SIGN_IN } from '../../constants/routes';
 // import firebase from 'firebase';
 
 const Register = () => {
@@ -11,7 +10,7 @@ const Register = () => {
   const emailRef = useRef();
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { user, error } = useSelector((state) => state.data);
+  const { user, error } = useSelector((state) => state.user);
 
   let dispatch = useDispatch();
 
@@ -59,7 +58,7 @@ const Register = () => {
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Already have an account? <Link to={SIGN_IN}>Sign In</Link>
+        Already have an account? <Link to="/signin">Sign In</Link>
       </div>
     </>
   )

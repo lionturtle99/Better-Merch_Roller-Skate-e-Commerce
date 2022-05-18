@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginInitiate } from '../../redux/actions/actions';
-import { SIGN_UP } from '../../constants/routes';
 import { Card, Form, Button, Alert } from 'react-bootstrap';
 
 const SignIn = () => {
@@ -10,7 +9,7 @@ const SignIn = () => {
   const emailRef = useRef();
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { user, error } = useSelector((state) => state.data);
+  const { user, error } = useSelector((state) => state.user);
 
   let dispatch = useDispatch();
 
@@ -18,7 +17,7 @@ const SignIn = () => {
 
   useEffect(() => {
     if(user) {
-      navigate("/");
+      navigate("/home");
     }
   }, [user, navigate]);
 
@@ -55,7 +54,7 @@ const SignIn = () => {
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Don't have an account? <Link to={SIGN_UP}>signup</Link>
+        Don't have an account? <Link to="/signup">signup</Link>
       </div>
     </>
   )

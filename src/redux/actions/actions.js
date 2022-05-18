@@ -6,6 +6,11 @@ export const addToBasket = (item) => ({
   payload: item
 })
 
+export const removeFromBasket = (id) => ({
+  type: types.REMOVE_FROM_BASKET,
+  payload: id
+})
+
 const registerStart = () => ({
   type: types.REGISTER_START,
 });

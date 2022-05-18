@@ -9,8 +9,8 @@ import { Header } from '../Header';
 import LandingPage from '../Landing';
 import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
+import SignOutPage from '../SignOut';
 import HomePage from '../Home';
-import * as ROUTES from '../../constants/routes';
 
 
 
@@ -30,10 +30,11 @@ const App = () => {
     <Router>
       <Header />
       <Routes>
-        <Route exact path={ROUTES.LANDING} element={<LandingPage />} />
-        <Route path={ROUTES.SIGN_UP} element={<SignUpPage />} />
-        <Route path={ROUTES.SIGN_IN} element={<SignInPage />} />
-        <Route path={ROUTES.HOME} element={<HomePage />} />
+        <Route exact path="/" element={<LandingPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/signin" element={<SignInPage />} />
+        <Route path="/signout" element={<SignOutPage />} />
+        <Route path="/home" element={<HomePage />} />
       </Routes>
     </Router>
   )
