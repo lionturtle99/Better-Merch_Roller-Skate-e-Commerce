@@ -35,7 +35,7 @@ const Header = () => {
   }
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar className="fixed-top" bg="dark" variant="dark" expand="lg">
       <Container fluid>
         <Navbar.Brand className="ms-5" href="/" ><img style={{width: "5em"}} src={logo} alt="e-Skate shop logo"></img></Navbar.Brand>
           <Link className="nav-link text-white" to="/shop" >Home</Link>

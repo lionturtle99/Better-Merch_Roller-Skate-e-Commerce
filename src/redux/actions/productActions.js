@@ -22,7 +22,7 @@ export const listProduct = () => {
     getDocs(colRef).then(snapshot => {
       let docsSnapshot = [];
       snapshot.docs.forEach(doc => {
-        docsSnapshot.push({ ...doc.data() });
+        docsSnapshot.push({ ...doc.data(), id: doc.id });
       })
         dispatch({  
           type: PRODUCT_LIST_SUCCESS,
@@ -46,13 +46,13 @@ export const productDetails = (id) => {
     getDoc(docRef).then(doc => {
       dispatch({  
         type: PRODUCT_DETAILS_SUCCESS,
-        payload: doc
+        payload: doc.data()
       });
     })
     .catch(err => {
       dispatch({  
         type: PRODUCT_DETAILS_FAIL,
-        payload: err
+        payload: err.message
       });
     })
   }

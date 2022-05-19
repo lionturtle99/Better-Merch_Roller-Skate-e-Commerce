@@ -2,11 +2,11 @@ import './productDetails.css';
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col, Button, Alert, Carousel } from "react-bootstrap";
+import Header from '../../Header';
 
-const ProductDetails = ({ navigate, match }) => {
+const ProductDetails = ({ navigate, match, }) => {
   const [qty, setQty] = useState(1);
 
-  const productId = match.params.id;
   const dispatch = useDispatch();
 
   const productDetails = useSelector((state) => state.productDetails);
@@ -14,12 +14,13 @@ const ProductDetails = ({ navigate, match }) => {
 
   const AddToCartHandle = (e) => {
     e.preventDefault();
-    navigate(`/cart/${productId}?qty=${qty}`);
+    // navigate(`/cart/${productDetails.id}?qty=${qty}`);
   };
 
   return (
     <>
-      <Container fluid className=" single-product">
+      <Header/>
+      <Container fluid className="pt-5 single-product">
         {loading ? (
           <h1 className="text-center position-absolute" style={{top: "50%", right: "50%",transform: "translate(50%, 50%)"}}>Loading...</h1>
         ) : error ? (
@@ -29,8 +30,8 @@ const ProductDetails = ({ navigate, match }) => {
             <Row>
               <Col md={6}>
                 <div className="single-image">
-                <Carousel>
-                  {product.images.map((image, index) => 
+              <Carousel>
+                    {product.images.map((image, index) => 
                       <Carousel.Item key={index}>
                         <div className="d-block align-items-center">
                           <img
@@ -43,7 +44,7 @@ const ProductDetails = ({ navigate, match }) => {
                       </Carousel.Item>
                     )}
                 </Carousel>
-                  {/* <img src={product.image} alt={product.name} /> */}
+                  <img src={product.image} alt={product.name} />
                 </div>
               </Col>
               <Col md={6}>
@@ -60,13 +61,13 @@ const ProductDetails = ({ navigate, match }) => {
                     </div>
                     <div className="flex-box d-flex justify-content-between align-items-center">
                       <h6>Status</h6>
-                      {product.countInStock > 0 ? (
+                      {product.quantityInStock > 0 ? (
                         <span>In Stock</span>
                       ) : (
                         <span>unavailable</span>
                       )}
                     </div>
-                    {product.countInStock > 0 ? (
+                    {product.quantityInStock > 0 ? (
                       <>
                         <div className="flex-box d-flex justify-content-between align-items-center">
                           <h6>Quantity</h6>
@@ -74,7 +75,7 @@ const ProductDetails = ({ navigate, match }) => {
                             value={qty}
                             onChange={(e) => setQty(e.target.value)}
                           >
-                            {[...Array(product.countInStock).keys()].map(
+                            {[...Array(product.quantityInStock).keys()].map(
                               (x) => (
                                 <option key={x + 1} value={x + 1}>
                                   {x + 1}

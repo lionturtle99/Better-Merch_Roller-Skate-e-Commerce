@@ -54,11 +54,12 @@ const SignIn = () => {
               Signin
             </Button>
           </Form>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
+          <div className="w-100 text-center mt-2">
         Don't have an account? <Link to="/signup">signup</Link>
       </div>
+        </Card.Body>
+      </Card>
+
     </Container>
   )
 }
