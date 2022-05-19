@@ -14,16 +14,16 @@ import CartPage from '../CartComponents/Cart';
 
 
 const App = () => {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   authorization.onAuthStateChanged((authUser) => {
-  //     if(authUser) {
-  //       dispatch(setuser(authUser));
-  //     } else {
-  //       dispatch(setuser(null));
-  //     }
-  //   })
-  // }, [dispatch]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    authorization.onAuthStateChanged((authUser) => {
+      if(authUser) {
+        dispatch(setuser(authUser));
+      } else {
+        dispatch(setuser(null));
+      }
+    })
+  }, [dispatch]);
   return (
     <Router>
       <Header />
