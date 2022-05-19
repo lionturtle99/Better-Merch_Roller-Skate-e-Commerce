@@ -1,9 +1,9 @@
 import './productDetails.css';
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Container, Row, Col, Button, Alert } from "react-bootstrap";
+import { Container, Row, Col, Button, Alert, Carousel } from "react-bootstrap";
 
-const SingleProduct = ({ navigate, match }) => {
+const ProductDetails = ({ navigate, match }) => {
   const [qty, setQty] = useState(1);
 
   const productId = match.params.id;
@@ -29,7 +29,21 @@ const SingleProduct = ({ navigate, match }) => {
             <Row>
               <Col md={6}>
                 <div className="single-image">
-                  <img src={product.image} alt={product.name} />
+                <Carousel>
+                  {product.images.map((image, index) => 
+                      <Carousel.Item key={index}>
+                        <div className="d-block align-items-center">
+                          <img
+                            className="d-flex w-100"
+                            style={{height: "15em"}}
+                            src={image.url}
+                            alt={image.alt}
+                          />
+                        </div>
+                      </Carousel.Item>
+                    )}
+                </Carousel>
+                  {/* <img src={product.image} alt={product.name} /> */}
                 </div>
               </Col>
               <Col md={6}>
@@ -88,4 +102,4 @@ const SingleProduct = ({ navigate, match }) => {
   );
 };
 
-export default SingleProduct;
+export default ProductDetails;

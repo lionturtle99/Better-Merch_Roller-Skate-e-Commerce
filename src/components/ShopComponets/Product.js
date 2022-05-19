@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Card, Button, Carousel } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import { addToCart } from "../../redux/actions/cartActions";
 
 import img1 from "../../assets/images/img1.jpeg";
@@ -25,21 +25,8 @@ const Product = ({product}) => {
 
   return (
     <>
-      <Card style={{ width: '18rem' }}>
-        <Carousel>
-          {product.images.map((image, index) => 
-              <Carousel.Item key={index}>
-                <div className="d-block align-items-center">
-                  <img
-                    className="d-flex w-100"
-                    style={{height: "15em"}}
-                    src={image.url}
-                    alt={image.alt}
-                  />
-                </div>
-              </Carousel.Item>
-            )}
-        </Carousel>
+      <Card className="p-0" style={{ width: '18rem' }}>
+        <Card.Img style={{ width: "inherit", height: "300px", objectFit: "cover"}} variant="top" src={product.images[0].url} />
         <Card.Body>
           <Link className="text-decoration-none text-inherit" to={`/products/${product.id}`}>
             <Card.Title>{product.title}</Card.Title>

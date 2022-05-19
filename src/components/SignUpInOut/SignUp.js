@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { registerInitiate, loginInitiate } from '../../redux/actions/userActions';
-import { Card, Form, Button, Alert } from 'react-bootstrap';
+import { Container, Card, Form, Button, Alert } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 // import firebase from 'firebase';
 

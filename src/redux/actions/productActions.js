@@ -7,70 +7,53 @@ import {
   PRODUCT_DETAILS_SUCCESS,
 } from "./actionTypes";
 import {
-  onSnapshot,
-  addDoc, deleteDoc, doc,
-  query, where,
-  orderBy, serverTimestamp,
+  doc,
   getDoc,
   collection,
   getDocs,
 } from 'firebase/firestore'
 import { db } from "../../firebase.config";
 
-const productListStart = () => ({
-  type: PRODUCT_LIST_START,
-});
-
-const productListSuccess = (listOfProducts) => ({
-  type: PRODUCT_LIST_SUCCESS,
-  payload: listOfProducts
-});
-
-const productListFail = (error) => ({
-  type: PRODUCT_LIST_FAIL,
-  payload: error
-});
-
+// PRODUCT LIST
 export const listProduct = () => {
   return function(dispatch) {
-    dispatch(productListStart());
+    dispatch({type: PRODUCT_LIST_START});
     const colRef = collection(db, "products");
     getDocs(colRef).then(snapshot => {
       let docsSnapshot = [];
       snapshot.docs.forEach(doc => {
         docsSnapshot.push({ ...doc.data() });
       })
-        dispatch(productListSuccess(docsSnapshot));
+        dispatch({  
+          type: PRODUCT_LIST_SUCCESS,
+          payload: docsSnapshot
+        });
       })
       .catch(err => {
-        dispatch(productListFail(err));
+        dispatch({
+          type: PRODUCT_LIST_FAIL,
+          payload: err
+        });
       })
   }
 }
 
-const productDetailsStart = () => ({
-  type: PRODUCT_DETAILS_START,
-});
-
-const productDetailsSuccess = (product) => ({
-  type: PRODUCT_DETAILS_SUCCESS,
-  payload: product
-});
-
-const productDetailsFail = (error) => ({
-  type: PRODUCT_DETAILS_FAIL,
-  payload: error
-});
-
+// PRODUCT DETAILS
 export const productDetails = (id) => {
   return function(dispatch) {
-    dispatch(productDetailsStart());
+    dispatch({type: PRODUCT_DETAILS_START});
     const docRef = doc(db, 'products', id);
     getDoc(docRef).then(doc => {
-      dispatch(productDetailsSuccess(doc));
+      dispatch({  
+        type: PRODUCT_DETAILS_SUCCESS,
+        payload: doc
+      });
     })
     .catch(err => {
-      dispatch(productDetailsFail(err));
+      dispatch({  
+        type: PRODUCT_DETAILS_FAIL,
+        payload: err
+      });
     })
   }
 }

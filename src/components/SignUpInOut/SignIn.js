@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginInitiate } from '../../redux/actions/userActions';
-import { Card, Form, Button, Alert } from 'react-bootstrap';
+import { Container, Card, Form, Button, Alert } from 'react-bootstrap';
 
 const SignIn = () => {
   const passwordRef = useRef();

@@ -11,6 +11,7 @@ import SignInPage from '../SignUpInOut/SignIn';
 import SignOutPage from '../SignUpInOut/SignOut';
 import ProductListPage from '../ShopComponets/ProductList';
 import CartPage from '../CartComponents/Cart';
+import ProductDetails from '../ProductDetails/ProductDetails';
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
         <Route path="/signout" element={<SignOutPage />} />
         <Route path="/shop" element={<ProductListPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
       </Routes>
     </Router>
   )

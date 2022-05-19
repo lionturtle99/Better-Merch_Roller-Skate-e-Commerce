@@ -6,7 +6,7 @@ const Pagination = () => {
     <nav>
       <ul className="pagination justify-content-center">
         <li className={`page-item active`}>
-          <Link className="page-link" to={"#"}>1</Link>
+          <Link style={{border: "1px solid black"}} className="bg-black page-link" to={"#"}>1</Link>
         </li>
         <li className={`page-item`}>
           <Link className="page-link" to={"#"}>2</Link>
