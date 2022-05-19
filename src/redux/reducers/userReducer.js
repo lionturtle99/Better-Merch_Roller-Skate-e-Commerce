@@ -1,4 +1,14 @@
-import * as types from '../actions/actionTypes';
+import { 
+  REGISTER_START,
+  REGISTER_FAIL,
+  REGISTER_SUCCESS, 
+  LOGOUT_SUCCESS, 
+  LOGIN_FAIL, 
+  LOGIN_START,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  LOGIN_FAIL,
+  SET_USER } from '../actions/actionTypes';
 
 const initialState = {
   loading: false,
@@ -8,33 +18,33 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch(action.type) {
-    case types.REGISTER_START:
-    case types.LOGIN_START:
-    case types.LOGOUT_START:
+    case REGISTER_START:
+    case LOGIN_START:
+    case LOGOUT_START:
       return {
         ...state,
         loading: true
       };
-    case types.LOGOUT_SUCCESS:
+    case LOGOUT_SUCCESS:
       return {
         ...state,
         user: null,
       }
-    case types.SET_USER:
+    case SET_USER:
       return {
         ...state,
         user: action.payload,
       }
-    case types.REGISTER_SUCCESS:
-    case types.LOGIN_SUCCESS: 
+    case REGISTER_SUCCESS:
+    case LOGIN_SUCCESS: 
       return {
         ...state,
         loading: false,
         user: action.payload,
       };
-    case types.REGISTER_FAIL:
-    case types.LOGIN_FAIL:
-    case types.LOGOUT_FAIL:
+    case REGISTER_FAIL:
+    case LOGIN_FAIL:
+    case LOGOUT_FAIL:
       return {
         ...state,
         loading: false,

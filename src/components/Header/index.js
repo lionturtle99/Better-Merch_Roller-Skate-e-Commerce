@@ -29,11 +29,7 @@ export const Header = () => {
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
           <Navbar.Brand className="ms-5" href="/" ><img style={{width: "5em"}} src={logo} alt="e-Skate shop logo"></img></Navbar.Brand>
-            {/* <Nav
-              className="me-auto ps-3 my-lg-0"
-            > */}
-              <Link className="nav-link text-white" to="/home" >Home</Link>
-            {/* </Nav> */}
+            <Link className="nav-link text-white" to="/home" >Home</Link>
             <Form className="d-flex m-auto w-50">
               <FormControl
                 type="search"

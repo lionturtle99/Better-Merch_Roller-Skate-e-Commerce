@@ -1,57 +1,62 @@
-import * as types from './actionTypes';
+import { 
+  REGISTER_START,
+  REGISTER_FAIL,
+  REGISTER_SUCCESS, 
+  LOGOUT_SUCCESS, 
+  LOGIN_FAIL, 
+  LOGIN_START,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  LOGIN_FAIL,
+  SET_USER } from '../actions/actionTypes';
 import { authorization as auth } from '../../firebase.config';
 import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from 'firebase/auth';
 
-export const addToCart = (item) => ({
-  type: types.ADD_TO_BASKET,
-  payload: item
-})
-
-export const removeFromCart = (id) => ({
-  type: types.REMOVE_FROM_BASKET,
-  payload: id
-})
-
 const registerStart = () => ({
-  type: types.REGISTER_START,
+  type: REGISTER_START,
 });
 
 const registerSuccess = (user) => ({
-  type: types.REGISTER_SUCCESS,
+  type: REGISTER_SUCCESS,
   payload: user
 });
 
 const registerFail = (error) => ({
-  type: types.REGISTER_FAIL,
+  type: REGISTER_FAIL,
   payload: error
 });
 
 const loginStart = () => ({
-  type: types.LOGIN_START,
+  type: LOGIN_START,
 });
 
 const loginSuccess = (user) => ({
-  type: types.LOGIN_SUCCESS,
+  type: LOGIN_SUCCESS,
   paylaod: user
 });
 
 const loginFail = (error) => ({
-  type: types.LOGIN_FAIL,
+  type: LOGIN_FAIL,
   payload: error
 });
 
 const logOutStart = () => ({
-  type: types.LOGOUT_START,
+  type: LOGOUT_START,
 });
 
 const logOutSuccess = (response) => ({
-  type: types.LOGOUT_SUCCESS,
+  type: LOGOUT_SUCCESS,
   paylaod: response
 });
 
 const logOutFail = (error) => ({
-  type: types.LOGOUT_FAIL,
+  type: LOGOUT_FAIL,
   payload: error
+});
+
+export const setuser = (user) => ({
+  type: SET_USER,
+  payload: user
 });
 
 export const registerInitiate = (email, password) => {
@@ -75,11 +80,6 @@ export const loginInitiate = (email, password) => {
       .catch((error) => dispatch(loginFail(error.message)));
   }
 }
-
-export const setuser = (user) => ({
-  type: types.SET_USER,
-  payload: user
-});
 
 export const logOutInitiate = () => {
   return function (dispatch) {
