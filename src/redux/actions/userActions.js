@@ -1,14 +1,15 @@
 import { 
   REGISTER_START,
   REGISTER_FAIL,
-  REGISTER_SUCCESS, 
-  LOGOUT_SUCCESS, 
-  LOGIN_FAIL, 
+  REGISTER_SUCCESS,  
   LOGIN_START,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOGIN_FAIL,
-  SET_USER } from '../actions/actionTypes';
+  LOGOUT_START,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAIL,
+  SET_USER 
+} from '../actions/actionTypes';
 import { authorization as auth } from '../../firebase.config';
 import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from 'firebase/auth';
 

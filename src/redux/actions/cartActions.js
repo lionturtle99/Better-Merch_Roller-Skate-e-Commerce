@@ -3,7 +3,7 @@ import {
   CART_ADD_ITEM_ERROR,
   CART_REMOVE_ITEM,
   CART_CLEAR_ITEMS,
-} from "../Constants/CartConstants";
+} from "./actionTypes";
 import {
   doc,
   // query, where,
@@ -29,7 +29,7 @@ export const addToCart = (id, qty) => {
             title: doc.title,
             description: doc.description,
             images: doc.images,
-            price: dic.price,
+            price: doc.price,
             "qty": qty
           }
         });

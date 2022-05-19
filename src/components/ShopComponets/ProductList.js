@@ -15,25 +15,19 @@ const Products = () => {
     dispatch(listProduct());
   }, [dispatch]);
 
-  if(loading) {
-    return (
-      <>
+  return (
+    <>
+      {loading ? 
+        <h1 className="text-center position-absolute" style={{top: "50%", right: "50%",transform: "translate(50%, 50%)"}}>Loading...</h1>
+      : error ?
+        <Alert className="text-center m-auto" variant="danger">{error.message}</Alert>
+      :
         <Container className="mt-5" style={{display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gridGap: "1em"}}>
           {products.map((product, index) => <Product key={index} product={product} /> )}
         </Container>
-      </>
-    )
-  } 
-  else if (error) {
-    return (
-      <Alert className="text-center m-auto" variant="danger">{error.message}</Alert>
-    )
-  } 
-  else {
-    return (
-      <h1 className="text-center position-absolute" style={{top: "50%", right: "50%",transform: "translate(50%, 50%)"}}>Loading...</h1>
-    )
-  }
+      }
+    </>
+  )
 }
 
 export default Products;

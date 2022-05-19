@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
@@ -9,7 +9,7 @@ import logo from '../../assets/images/US_logo_blue.png';
 import './header.css';
 
 
-export const Header = () => {
+const Header = () => {
   const [cartCount, setCartCount] = useState(6);
   const cartRef = useRef();
   const [keyword, setKeyword] = useState();
@@ -30,7 +30,7 @@ export const Header = () => {
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
           <Navbar.Brand className="ms-5" href="/" ><img style={{width: "5em"}} src={logo} alt="e-Skate shop logo"></img></Navbar.Brand>
-            <Link className="nav-link text-white" to="/home" >Home</Link>
+            <Link className="nav-link text-white" to="/shop" >Home</Link>
             <Form className="d-flex m-auto w-50">
               <FormControl
                 type="search"
@@ -69,3 +69,5 @@ export const Header = () => {
     </>
   )
 }
+
+export default Header;

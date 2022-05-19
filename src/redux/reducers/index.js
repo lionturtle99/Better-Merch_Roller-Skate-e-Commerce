@@ -2,12 +2,13 @@ import { combineReducers } from 'redux';
 import { firestoreReducer } from 'redux-firestore';
 import cartReducer from './cartReducer';
 import userReducer from './userReducer';
-import productsReducer from './productReducer';
+import { productListReducer, productDetailsReducer } from './productReducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
   cart: cartReducer,
-  productList: productsReducer,
+  productList: productListReducer,
+  productDetails: productDetailsReducer,
   firestore: firestoreReducer,
 
 })

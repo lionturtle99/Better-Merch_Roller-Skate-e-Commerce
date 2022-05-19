@@ -5,13 +5,12 @@ import { setuser } from '../../redux/actions/userActions';
 
 import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
 import Header from '../Header';
-import LandingPage from '../LandingPage';
+import HomePage from '../Home';
 import SignUpPage from '../SignUpInOut/SignUp';
 import SignInPage from '../SignUpInOut/SignIn';
 import SignOutPage from '../SignUpInOut/SignOut';
-import ProductListPage from '../HomeComponents/ProductList';
-
-
+import ProductListPage from '../ShopComponets/ProductList';
+import CartPage from '../CartComponents/Cart';
 
 
 const App = () => {
@@ -29,11 +28,12 @@ const App = () => {
     <Router>
       <Header />
       <Routes>
-        <Route exact path="/" element={<LandingPage />} />
+        <Route exact path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/signout" element={<SignOutPage />} />
-        <Route path="/home" element={<ProductListPage />} />
+        <Route path="/shop" element={<ProductListPage />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
     </Router>
   )

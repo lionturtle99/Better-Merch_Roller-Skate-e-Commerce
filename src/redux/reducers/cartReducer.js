@@ -1,10 +1,10 @@
 import {
   CART_ADD_ITEM,
-  CART_CLEAR_ITEMS,
   CART_REMOVE_ITEM,
-} from "../Constants/CartConstants";
+  CART_CLEAR_ITEMS,
+} from "../actions/actionTypes";
 
-export const cartReducer = (state = { cartItems: [] }, action) => {
+const cartReducer = (state = { cartItems: [] }, action) => {
   switch (action.type) {
     case CART_ADD_ITEM:
       const item = action.payload;
@@ -37,3 +37,5 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       return state;
   }
 };
+
+export default cartReducer;

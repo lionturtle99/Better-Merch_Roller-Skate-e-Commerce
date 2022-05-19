@@ -1,7 +1,11 @@
 import {
-  PRODUCT_LIST_FAIL,
   PRODUCT_LIST_START,
-  PRODUCT_LIST_SUCCESS, } from "../actions/actionTypes";
+  PRODUCT_LIST_SUCCESS,
+  PRODUCT_LIST_FAIL,
+  PRODUCT_DETAILS_START,
+  PRODUCT_DETAILS_SUCCESS,
+  PRODUCT_DETAILS_FAIL
+} from "../actions/actionTypes";
 
   export const productListReducer = (state = { products: [] }, action) => {
     switch (action.type) {
@@ -18,7 +22,7 @@ import {
 
   export const productDetailsReducer = (state = { product: { reviews: [] } }, action) => {
     switch (action.type) {
-      case PRODUCT_DETAILS_REQUEST:
+      case PRODUCT_DETAILS_START:
         return { ...state, loading: true };
       case PRODUCT_DETAILS_SUCCESS:
         return { loading: false, product: action.payload };

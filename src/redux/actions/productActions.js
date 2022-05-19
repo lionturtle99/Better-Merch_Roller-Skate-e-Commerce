@@ -12,6 +12,8 @@ import {
   query, where,
   orderBy, serverTimestamp,
   getDoc,
+  collection,
+  getDocs,
 } from 'firebase/firestore'
 import { db } from "../../firebase.config";
 
@@ -33,7 +35,7 @@ export const listProduct = () => {
   return function(dispatch) {
     dispatch(productListStart());
     const colRef = collection(db, "products");
-    onSnapshot(colRef).then(snapshot => {
+    getDocs(colRef).then(snapshot => {
       let docsSnapshot = [];
       snapshot.docs.forEach(doc => {
         docsSnapshot.push({ ...doc.data() });
@@ -64,7 +66,6 @@ export const productDetails = (id) => {
   return function(dispatch) {
     dispatch(productDetailsStart());
     const docRef = doc(db, 'products', id);
-    const docRef = doc(colRef);
     getDoc(docRef).then(doc => {
       dispatch(productDetailsSuccess(doc));
     })
