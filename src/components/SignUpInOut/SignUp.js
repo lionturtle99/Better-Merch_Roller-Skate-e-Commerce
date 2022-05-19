@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { loginInitiate } from '../../redux/actions/actions';
+import { registerInitiate, loginInitiate } from '../../redux/actions/userActions';
 import { Card, Form, Button, Alert } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+// import firebase from 'firebase';
 
-const SignIn = () => {
+const Register = () => {
   const passwordRef = useRef();
   const emailRef = useRef();
   const [errorMessage, setErrorMessage] = useState("");
@@ -16,8 +17,8 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(user) {
-      navigate("/home");
+    if (user) {
+      navigate("/");
     }
   }, [user, navigate]);
 
@@ -27,8 +28,11 @@ const SignIn = () => {
     }
   }, [error, dispatch]);
 
-  const handleSignIn = (event) => {
+  const handleRegister = (event) => {
     event.preventDefault();
+    // sign up logic
+    dispatch(registerInitiate(emailRef.current.value, passwordRef.current.value));
+    // sign in after signing up logic. This logic also makes the page navigate to landing page
     dispatch(loginInitiate(emailRef.current.value, passwordRef.current.value));
   }
 
@@ -36,9 +40,9 @@ const SignIn = () => {
     <>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">Sign In</h2>
+          <h2 className="text-center mb-4">Sign Up</h2>
           {errorMessage && <Alert className="text-center" variant="danger">{errorMessage}</Alert>}
-          <Form onSubmit={handleSignIn}>
+          <Form onSubmit={handleRegister}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" ref={emailRef} required />
@@ -48,16 +52,16 @@ const SignIn = () => {
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
             <Button className="w-100" type="submit">
-              Signin
+              Sign Up
             </Button>
           </Form>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Don't have an account? <Link to="/signup">signup</Link>
+        Already have an account? <Link to="/signin">Sign In</Link>
       </div>
     </>
   )
 }
 
-export default SignIn
+export default Register

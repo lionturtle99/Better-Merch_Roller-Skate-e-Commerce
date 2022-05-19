@@ -1,22 +1,21 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
-import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
-
 import { authorization } from '../../firebase.config';
-import { setuser } from '../../redux/actions/actions';
+import { setuser } from '../../redux/actions/userActions';
 
-import { Header } from '../Header';
-import LandingPage from '../Landing';
-import SignUpPage from '../SignUp';
-import SignInPage from '../SignIn';
-import SignOutPage from '../SignOut';
-import HomePage from '../Home';
+import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
+import Header from '../Header';
+import LandingPage from '../LandingPage';
+import SignUpPage from '../SignUpInOut/SignUp';
+import SignInPage from '../SignUpInOut/SignIn';
+import SignOutPage from '../SignUpInOut/SignOut';
+import ProductListPage from '../HomeComponents/ProductList';
 
 
 
 
 const App = () => {
-  // let dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // useEffect(() => {
   //   authorization.onAuthStateChanged((authUser) => {
   //     if(authUser) {
@@ -34,7 +33,7 @@ const App = () => {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/signout" element={<SignOutPage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/home" element={<ProductListPage />} />
       </Routes>
     </Router>
   )

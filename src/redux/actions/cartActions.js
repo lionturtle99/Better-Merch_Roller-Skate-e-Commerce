@@ -1,41 +1,49 @@
 import {
   CART_ADD_ITEM,
-  CART_CLEAR_ITEMS,
+  CART_ADD_ITEM_ERROR,
   CART_REMOVE_ITEM,
+  CART_CLEAR_ITEMS,
 } from "../Constants/CartConstants";
-import { doc, getDocs, getDoc } from "firebase/firestore";
+import {
+  doc,
+  // query, where,
+  // serverTimestamp,
+  getDoc,
+} from 'firebase/firestore'
+import { db } from "../../firebase.config";
+
+const addToCartError = (error) => ({
+  type: CART_ADD_ITEM_ERROR,
+  payload: error
+});
 
 export const addToCart = (id, qty) => {
-  return function(dispatch, getstate) {
-    dispatch({
-
-    });
-      createUserWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        dispatch(registerSuccess(user));
+  return function(dispatch) {
+    const docRef = doc(db, 'products', id)
+    getDoc(docRef)
+      .then(doc => {
+        dispatch({ 
+          type: CART_ADD_ITEM,
+          payload: {
+            id: doc.id,
+            title: doc.title,
+            description: doc.description,
+            images: doc.images,
+            price: dic.price,
+            "qty": qty
+          }
+        });
       })
-      .catch((error) => dispatch(registerFail(error.message)));
+      .catch((error) => dispatch(addToCartError(error.message)));
   }
 }
 
-export const removeFromCart = (item) => ({
-  type: CART_REMOVE_ITEM,
-  payload: item
-})
+export const removeFromCart = (id) => {
+  return function(dispatch) {
+    dispatch({ 
+      type: CART_REMOVE_ITEM, 
+      payload: id 
+    });
+  }
+};
 
-export const removeFromCart = () => ({
-  type: CART_CLEAR_ITEMS,
-})
-
-getDocs(colRef)
-  .then(snapshot => {
-    let docsSnapshot = [];
-    snapshot.docs.forEach(doc => {
-      docsSnapshot.push({ ...doc.data() });
-    })
-    setProducts(docsSnapshot);
-    setLoaded(true);
-  })
-  .catch(err => {
-    console.log(err.message);
-  })

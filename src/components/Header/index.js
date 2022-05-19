@@ -2,19 +2,20 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
+
+import { Navbar, Container, Form, FormControl, Button, Dropdown } from "react-bootstrap";
+import { logOutInitiate } from '../../redux/actions/userActions';
 import logo from '../../assets/images/US_logo_blue.png';
 import './header.css';
 
-import { Navbar, Nav, Container, Form, FormControl, Button, Dropdown } from "react-bootstrap";
-import { logOutInitiate } from '../../redux/actions/actions';
-
 
 export const Header = () => {
-  const [cartCount, setCartCount] = useState(0);
+  const [cartCount, setCartCount] = useState(6);
+  const cartRef = useRef();
   const [keyword, setKeyword] = useState();
   let navigate = useNavigate();
 
-  // const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
 

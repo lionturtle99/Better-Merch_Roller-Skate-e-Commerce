@@ -1,10 +1,8 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Card, Button } from 'react-bootstrap';
-import ImageCarousel from '../ImageCarousel';
-import { addToCart } from "../../redux/actions/actions";
-import { Link } from "react-router-dom";
+import { addToCart } from "../../redux/actions/userActions";
 
 import img1 from "../../assets/images/img1.jpeg";
 import img2 from "../../assets/images/img2.jpeg";
@@ -29,7 +27,20 @@ const Product = ({product}) => {
   return (
     <>
       <Card style={{ width: '18rem' }}>
-          <ImageCarousel className="card-img" images={product.images} />
+        <Carousel>
+          {product.images.map((image, index) => 
+              <Carousel.Item key={index}>
+                <div className="d-block align-items-center">
+                  <img
+                    className="d-flex w-100"
+                    style={{height: "15em"}}
+                    src={image.url}
+                    alt={image.alt}
+                  />
+                </div>
+              </Carousel.Item>
+            )}
+        </Carousel>
         <Card.Body>
           <Link className="text-decoration-none text-inherit" to={`/products/${product.id}`}>
             <Card.Title>{product.title}</Card.Title>

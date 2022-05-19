@@ -9,6 +9,12 @@ if (process.env.NODE_ENV === 'development') {
   middleware.push(logger);
 }
 
-const store = createStore(rootReducer, applyMiddleware(...middleware));
+const initialState = {
+  cart: {
+    cartItems: [],
+  }
+}
+
+const store = createStore(rootReducer, initialState, applyMiddleware(...middleware));
 
 export default store;
