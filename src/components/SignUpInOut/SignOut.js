@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const SignOut = () => {
   return (
-    <Container style={{height: "85vh"}} className="d-flex align-items-center justify-content-center w-50">
+    <Container style={{minHeight: "85vh"}} className="d-flex align-items-center justify-content-center w-50">
       <Card className="text-center p-5">
         <Card.Body >
           <h5>You are now signed out</h5>

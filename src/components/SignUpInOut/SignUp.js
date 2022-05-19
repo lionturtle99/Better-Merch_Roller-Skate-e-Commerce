@@ -12,7 +12,7 @@ const Register = () => {
 
   const { user, error } = useSelector((state) => state.user);
 
-  let dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -37,7 +37,10 @@ const Register = () => {
   }
 
   return (
-    <>
+    <Container 
+    className="d-flex align-items-center justify-content-center" 
+    style={{ minHeight: "100vh" }} 
+    >
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
@@ -60,7 +63,7 @@ const Register = () => {
       <div className="w-100 text-center mt-2">
         Already have an account? <Link to="/signin">Sign In</Link>
       </div>
-    </>
+    </Container>
   )
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginInitiate } from '../../redux/actions/userActions';
@@ -11,7 +11,7 @@ const SignIn = () => {
 
   const { user, error } = useSelector((state) => state.user);
 
-  let dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -33,7 +33,10 @@ const SignIn = () => {
   }
 
   return (
-    <>
+    <Container 
+    className="d-flex align-items-center justify-content-center" 
+    style={{ minHeight: "100vh" }} 
+    >
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Sign In</h2>
@@ -56,7 +59,7 @@ const SignIn = () => {
       <div className="w-100 text-center mt-2">
         Don't have an account? <Link to="/signup">signup</Link>
       </div>
-    </>
+    </Container>
   )
 }
 

@@ -8,7 +8,11 @@ import {
   LOGOUT_START,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
-  SET_USER 
+  SET_USER,
+  USER_DETAILS_SUCCESS,
+  USER_DETAILS_START,
+  USER_DETAILS_RESET,
+  USER_DETAILS_FAIL
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -17,7 +21,7 @@ const initialState = {
   error: null,
 }
 
-const userReducer = (state = initialState, action) => {
+export const userReducer = (state = initialState, action) => {
   switch(action.type) {
     case REGISTER_START:
     case LOGIN_START:
@@ -56,4 +60,18 @@ const userReducer = (state = initialState, action) => {
   }
 }
 
-export default userReducer;
+// USER DETAILS
+export const userDetailsReducer = (state = { user: {} }, action) => {
+  switch (action.type) {
+    case USER_DETAILS_START:
+      return { ...state, loading: true };
+    case USER_DETAILS_SUCCESS:
+      return { loading: false, user: action.payload };
+    case USER_DETAILS_FAIL:
+      return { loading: false, error: action.payload };
+    case USER_DETAILS_RESET:
+      return { user: {} };
+    default:
+      return state;
+  }
+};
