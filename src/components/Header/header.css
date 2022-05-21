@@ -1,0 +1,19 @@
+.login-button {
+  background-color: white;
+  border-radius: 5%;
+}
+
+.badge {
+  background-color: red;
+  position: absolute;
+  top: 16px;
+  right: 50px;
+  border-radius: 100px;
+  padding: 3px 5px;
+  font-size: 12px;
+}
+
+.cart-mobile-icon i {
+  font-size: 13px;
+  margin-left: 10px;
+}
