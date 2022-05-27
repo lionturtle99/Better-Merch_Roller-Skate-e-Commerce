@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { authorization } from '../../firebase.config';
 import { setuser } from '../../redux/actions/userActions';
-
 import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
 import HomePage from '../Home';
 import SignUpPage from '../SignUpInOut/SignUp';

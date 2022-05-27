@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 
 import { Navbar, Container, Form, FormControl, Button, Dropdown } from "react-bootstrap";
 import { logOutInitiate } from '../../redux/actions/userActions';
-import logo from '../../assets/images/US_logo_blue.png';
+import logo from '../../assets/images/bm-blue-logo.png';
 import './header.css';
 
 
@@ -37,7 +37,7 @@ const Header = () => {
   return (
     <Navbar className="fixed-top" bg="dark" variant="dark" expand="lg">
       <Container fluid>
-        <Navbar.Brand className="ms-5" href="/" ><img style={{width: "5em"}} src={logo} alt="e-Skate shop logo"></img></Navbar.Brand>
+        <Navbar.Brand className="ms-5" href="/" ><img style={{width: "4em", borderRadius: "100%"}} src={logo} alt="e-Skate shop logo"></img></Navbar.Brand>
           <Link className="nav-link text-white" to="/shop" >Home</Link>
           <Form onSubmit={searchHandler} className="d-flex m-auto w-50">
             <FormControl
