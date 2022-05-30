@@ -9,9 +9,7 @@ import { listMyOrders } from "../Redux/Actions/OrderActions";
 
 const Profile = () => {
   window.scrollTo(0, 0);
-
   const dispatch = useDispatch();
-
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   const orderListMy = useSelector((state) => state.orderListMy);

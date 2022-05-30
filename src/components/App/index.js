@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { authorization } from '../../firebase.config';
-import { setuser } from '../../redux/actions/userActions';
+import { setUser } from '../../redux/actions/userActions';
 import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
 import HomePage from '../Home';
-import SignUpPage from '../SignUpInOut/SignUp';
-import SignInPage from '../SignUpInOut/SignIn';
-import SignOutPage from '../SignUpInOut/SignOut';
-import ProductListPage from '../ProductsComponets';
-import CartPage from '../CartComponents/Cart';
-import ProductDetails from '../ProductsComponets/ProductDetails/ProductDetails';
+import SignUpPage from '../User/SignUp';
+import SignInPage from '../User/SignIn';
+import SignOutPage from '../User/SignOut';
+import ProductListPage from '../ProductsComponents';
+import CartPage from '../Cart/Cart';
+import ProductDetails from '../ProductsComponents/ProductDetails/ProductDetails';
 
 
 const App = () => {
@@ -17,9 +17,9 @@ const App = () => {
   useEffect(() => {
     authorization.onAuthStateChanged((authUser) => {
       if(authUser) {
-        dispatch(setuser(authUser));
+        dispatch(setUser(authUser));
       } else {
-        dispatch(setuser(null));
+        dispatch(setUser(null));
       }
     })
   }, [dispatch]);

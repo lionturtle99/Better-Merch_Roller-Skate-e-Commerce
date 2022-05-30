@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Card } from 'react-bootstrap';
 import { useDispatch } from "react-redux";
 import { productDetails } from "../../redux/actions/productActions"; 
+import { addToCart } from "../../redux/actions/cartActions";
 
 const Product = ({ product }) => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const Product = ({ product }) => {
   return (
     <>
       <Card style={{ width: '18rem' }}>
-          <Card.Img onClick={handleGettingProductDetails} style={{fload: "left", width: "inherit", height: "300px", objectFit: "cover"}} variant="top" src={product.images[0].url} />
+          <Card.Img onClick={handleGettingProductDetails} style={{float: "left", width: "inherit", height: "300px", objectFit: "cover"}} variant="top" src={product.images[0].url} />
         <Card.Body>
         <Link onClick={handleGettingProductDetails} className="text-decoration-none text-black" to={`/product`}><Card.Title>{product.title}</Card.Title></Link>
           <Card.Text>{product.description}</Card.Text>

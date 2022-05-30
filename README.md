@@ -1,6 +1,6 @@
 <p align="center">
     <br>
-    <img style="border-radius: 50%;" src="./src/assets/images/bm-blue-logo.png">
+    <img style="border-radius: 100%; width: 12em;" src="./src/assets/images/bm-blue-logo.png">
     <p align="center">
     </p>
     <p align="center">

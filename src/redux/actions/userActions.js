@@ -18,7 +18,7 @@ import { authorization as auth } from '../../firebase.config';
 import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from 'firebase/auth';
 
 // SET USER
-export const setuser = (user) => ({
+export const setUser = (user) => ({
   type: SET_USER,
   payload: user
 });

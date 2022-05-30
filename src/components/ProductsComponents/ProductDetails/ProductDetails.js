@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col, Button, Alert, Carousel } from "react-bootstrap";
 import Header from '../../Header';
+import { addToCart } from '../../../redux/actions/cartActions';
 
 const ProductDetails = ({ navigate, match, }) => {
   const [qty, setQty] = useState(1);
@@ -12,11 +13,6 @@ const ProductDetails = ({ navigate, match, }) => {
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
 
-  const AddToCartHandle = (e) => {
-    e.preventDefault();
-    // navigate(`/cart/${productDetails.id}?qty=${qty}`);
-  };
-
   return (
     <>
       <Header/>
@@ -24,7 +20,7 @@ const ProductDetails = ({ navigate, match, }) => {
         {loading ? (
           <h1 className="text-center position-absolute" style={{top: "50%", right: "50%",transform: "translate(50%, 50%)"}}>Loading...</h1>
         ) : error ? (
-          <Alert className="text-center" variant="danger">Unkown problem occured. Please try again later</Alert>
+          <Alert className="text-center" variant="danger">Unknown error ocurred. Please try again later</Alert>
         ) : (
           <>
             <Row>
@@ -84,10 +80,7 @@ const ProductDetails = ({ navigate, match, }) => {
                             )}
                           </select>
                         </div>
-                        <Button
-                          onClick={AddToCartHandle}
-                          className="round-black-btn"
-                        >
+                        <Button className="round-black-btn" onClick={() => dispatch(addToCart(product.id, qty))}>
                           Add To Cart
                         </Button>
                       </>
